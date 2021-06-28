@@ -63,6 +63,15 @@ client.connect(err => {
     })
   })
 
+  // If admin sign in the form
+  app.post('/ifAdmin', (req, res) => {
+    const email = req.body.email;
+    adminCollection.find({email: email})
+    .toArray((err, admin) => {
+      res.send(admin.length > 0 )
+    })
+  })
+
   // perform actions on the collection object
   console.log('database connection established')
 });

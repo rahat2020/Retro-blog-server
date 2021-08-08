@@ -35,6 +35,14 @@ client.connect(err => {
         res.send(documents)
       })
   })
+
+  // showing data to the BlogDetails
+  app.get('/readBlog', (req, res) => {
+    postCollection.find()
+    .toArray((err, documents) => {
+      res.send(documents)
+    })
+  })
   // adding admin to the database
   app.post('/addAdmin', (req, res) => {
     const isAdmin = req.body;
